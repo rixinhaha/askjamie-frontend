@@ -5,7 +5,6 @@ const QuestionForm: React.FC<{}> = () => {
     <div>
       Form to create a question
     </div>
-
   );
 };
 
