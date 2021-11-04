@@ -1,4 +1,4 @@
-# Ask Jamie Bot Manager Frontend
+# AskJamie Bot Manager Frontend
 
 This is the frontend repository for Ask Jamie Bot Manager Frontend
 ## How to setup
