@@ -1,5 +1,7 @@
 import React from "react";
-import { HomeOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined, SettingOutlined, UserOutlined, RobotOutlined,
+} from "@ant-design/icons";
 
 // exported config object
 export default {
@@ -24,6 +26,13 @@ export default {
       title: "Setting",
       component: React.lazy(() => import("./pages/setting")),
       icon: <SettingOutlined />,
+    },
+    {
+      type: "page",
+      path: "/role-manager",
+      title: "Role Manager",
+      component: React.lazy(() => import("./pages/role-manager")),
+      icon: <RobotOutlined />,
     },
     {
       type: "404",

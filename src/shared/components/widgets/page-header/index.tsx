@@ -7,7 +7,7 @@ import WidgetPageNavDrawer from "../page-nav-drawer";
 
 const { Header } = Layout;
 
-const datetimeOptions = {
+const datetimeOptions: Intl.DateTimeFormatOptions = {
   month: "long",
   day: "2-digit",
   hour: "2-digit",
@@ -35,7 +35,7 @@ const WidgetPageHeader: React.FC<{}> = () => {
     <Header className={s.header}>
       <div className={s.headerWrapper}>
         <WidgetPageNavDrawer />
-        <h1 className={s.headerTitle}>Internal Tool</h1>
+        <h1 className={s.headerTitle}>Ask Jamie</h1>
         <h3 className={s.headerTime}>{time}</h3>
         <WidgetUserAvatar isLoggedIn />
       </div>
