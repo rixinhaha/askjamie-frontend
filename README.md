@@ -1,3 +1,12 @@
-# starter.internal.react
+# Ask Jamie Bot Manager Frontend
 
-React.js, TypeScript starter template for internal tools
+This is the frontend repository for Ask Jamie Bot Manager Frontend
+## How to setup
+
+1. Install `nodejs` [https://nodejs.org/en/]
+2. Open a terminal and type in the command `cd Desktop` or `cd Documents` depending on where you want clone this repository
+3. Run `git clone https://github.com/rixinhaha/askjamie-frontend.git`
+4. cd `askjamie-frontend`
+5. Run `npm install`
+6. Run `npm start`
+
