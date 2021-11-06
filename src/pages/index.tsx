@@ -4,6 +4,7 @@ import config from "src/config";
 import PageLayout from "src/shared/components/page-layout";
 import flattenDeep from "lodash.flattendeep";
 import FallbackSpinner from "src/shared/components/loading";
+import Permission from "src/shared/components/permission";
 
 const Pages: React.FC<{}> = () => {
   const { sidebar } = config;
@@ -14,11 +15,13 @@ const Pages: React.FC<{}> = () => {
     }
     if (item.type === "404" || item.type === "page") {
       const LoadedPage = item.component;
-      debugger;
       return (
         <Route key={item.path} exact={item.type === "page"} path={item.path}>
           <PageLayout>
-            <Suspense fallback={<FallbackSpinner />}><LoadedPage /></Suspense>
+            <Suspense fallback={<FallbackSpinner />}>
+              {item.permission ? (<Permission><LoadedPage /></Permission>)
+                : (<LoadedPage />)}
+            </Suspense>
           </PageLayout>
         </Route>
       );

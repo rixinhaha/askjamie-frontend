@@ -7,15 +7,21 @@ import style from "./s.module.scss";
 
 interface WidgetUserAvatarProps {
   isLoggedIn: boolean;
+  name?: string;
+  email?: string;
+  avatar?: string;
+  uid?: string;
   onLogout?: () => void;
   onAvatarClick?: (e: any) => void;
+  onLogin?: ()=> void;
 }
 
 // logged in
 
 const WidgetUserAvatar: React.FC<WidgetUserAvatarProps> = (props) => {
-  const { isLoggedIn, onLogout, onAvatarClick } = props;
-  const [popupActive, setPopupActive] = useState<boolean>(false);
+  const {
+    isLoggedIn, onLogout, onAvatarClick, onLogin, name, email, avatar,
+  } = props;
 
   const handleAvatarClick = (e: any) => {
     if (onAvatarClick) {
@@ -29,14 +35,24 @@ const WidgetUserAvatar: React.FC<WidgetUserAvatarProps> = (props) => {
     }
   };
 
+  const handleLoginClick = () => {
+    if (onLogin) {
+      onLogin();
+    }
+  };
+
   const popupTitle = (
     <div className={style.popupTitleWrapper}>
       <div className={style.popupAvatarWrapper} onClick={handleAvatarClick}>
-        <Avatar icon={<UserOutlined />} size={32} />
+        <Avatar
+          src={<img alt="avatar" src={avatar ?? ""} />}
+          icon={<UserOutlined />}
+          size={32}
+        />
       </div>
       <div>
-        <div className={style.popupTitleName}>Rex Wang</div>
-        <div className={style.popupTitleEmail}>rwang@media.ucla.edu</div>
+        <div className={style.popupTitleName}>{name}</div>
+        <div className={style.popupTitleEmail}>{email}</div>
       </div>
     </div>
   );
@@ -51,6 +67,20 @@ const WidgetUserAvatar: React.FC<WidgetUserAvatarProps> = (props) => {
     </Button>
   );
 
+  if (!isLoggedIn) {
+    return (
+      <div>
+        <Button
+          type="primary"
+          shape="round"
+          onClick={handleLoginClick}
+        >
+          Sign In
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Popover
@@ -63,6 +93,7 @@ const WidgetUserAvatar: React.FC<WidgetUserAvatarProps> = (props) => {
           className={style.userAvatarCircle}
           size={32}
           icon={<UserOutlined />}
+          src={<img alt="avatar" src={avatar ?? ""} />}
         />
       </Popover>
     </div>

@@ -32,6 +32,7 @@ export default {
       path: "/role-manager",
       title: "Role Manager",
       component: React.lazy(() => import("./pages/role-manager")),
+      permission: true,
       icon: <RobotOutlined />,
     },
     {

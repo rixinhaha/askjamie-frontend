@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
+import { Provider } from "react-redux";
 import Pages from "./pages";
+import { store } from "./redux";
 
 function App() {
   return (
-    <Pages />
+    <Provider store={store}>
+      <Pages />
+    </Provider>
+
   );
 }
 

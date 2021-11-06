@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import pokemonSlice from "./slices/pokemonSlice";
+import userSlice from "./slices/userSlice";
 
 const rootReducer = combineReducers({
-  pokemon: pokemonSlice.reducer,
+  user: userSlice.reducer,
 });
 
 export const store = configureStore({
